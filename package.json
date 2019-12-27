@@ -1,0 +1,70 @@
+{
+  "name": "watermark-base64",
+  "version": "1.0.0",
+  "description": "watermark base64",
+  "keywords": [
+    "watermark-base64",
+    "canvas",
+    "javascript",
+    "watermark"
+  ],
+  "homepage": "https://github.com/cnguu/watermark-base64/",
+  "bugs": {
+    "url": "https://github.com/cnguu/watermark-base64/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cnguu/watermark-base64.git"
+  },
+  "license": "MIT",
+  "author": "cnguu <www@cnguu.cn>",
+  "main": "dist/watermark-base64.min.js",
+  "scripts": {
+    "build": "gulp build",
+    "lint": "eslint --ext .js src",
+    "publish": "git push origin master:master --tags",
+    "test": "npm run lint && npm run build",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "babel-eslint": "^10.0.3",
+    "conventional-changelog-cli": "^2.0.28",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.0.1",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.1.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-inject-version": "^1.0.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "sort-package-json": "^1.30.0"
+  }
+}
